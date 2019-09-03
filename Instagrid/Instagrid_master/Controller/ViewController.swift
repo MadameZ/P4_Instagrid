@@ -194,9 +194,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let photoToLoad = _imageTapped else { return }
-        // if the image is edited, check if it's an UIImage.
+        // if the image is edited with "allowsEditing", check if it's an UIImage.
         if let editedImage = info[.editedImage] as? UIImage {
-            // Change the image and increment photoCounter to know how many pictures has been selected.
             photoToLoad.image = editedImage
             photoToLoad.contentMode = .scaleAspectFill
             viewToShare.photoCounter += 1
@@ -210,7 +209,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         dismiss(animated: true, completion: nil)
     }
     
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

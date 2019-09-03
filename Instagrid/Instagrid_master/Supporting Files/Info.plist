@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This app uses the camera to take photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app saves photos to your photo library.</string>
+	<string>This app uses photos from your Library.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>To save grid in your photo library</string>
 	<key>UILaunchStoryboardName</key>
