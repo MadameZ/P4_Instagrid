@@ -6,6 +6,9 @@
 - Put his iPhone in portrait or landscape mode.
 - Share his composition with friends and on social networks
 
+### Gestures on iPhone screen :
+tapGestureRecognizer, ImagePickerController, AlertController, activityViewController, swipeGestureRecognizer
+
 
 <img width="203" alt="sc_01" src="https://user-images.githubusercontent.com/39524369/64167075-bddf3580-ce48-11e9-9e80-a7aea1788c5e.png">
 
