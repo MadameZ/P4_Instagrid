@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThirstySoftRegular.otf">
+            <string>ThirstySoftRegular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid_master" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pU7-go-i2Z" userLabel="View Background Blue" customClass="LayoutView" customModule="Instagrid_master" customModuleProvider="target">
+                                <rect key="frame" x="38" y="279" width="338" height="338"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="p1t-Ng-zUg">
+                                        <rect key="frame" x="15" y="15" width="308" height="308"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8M5-w2-YhJ" userLabel="Stack View Top">
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="146.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-7c-hRI" userLabel="topLeft_imageView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="146.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="4cK-iP-omn" appends="YES" id="9MG-7E-nfo"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="avp-dC-FNd" userLabel="topRight_imageView">
+                                                        <rect key="frame" x="161.5" y="0.0" width="146.5" height="146.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="WN6-OH-dVn" appends="YES" id="Ljo-Ir-Alx"/>
+                                                        </connections>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vxl-yp-9Ef" userLabel="Stack View Bottom">
+                                                <rect key="frame" x="0.0" y="161.5" width="308" height="146.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="xR9-Ds-grV" userLabel="bottomLeft_imageView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="146.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="RyI-JR-iWp" appends="YES" id="Pn2-un-Ifz"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="6mM-Jo-SPW" userLabel="bottomRight_imageView">
+                                                        <rect key="frame" x="161.5" y="0.0" width="146.5" height="146.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="tF0-eN-5TR" appends="YES" id="8OW-Lc-C8B"/>
+                                                        </connections>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="p1t-Ng-zUg" secondAttribute="bottom" constant="15" id="6Vp-nM-STy"/>
+                                    <constraint firstAttribute="trailing" secondItem="p1t-Ng-zUg" secondAttribute="trailing" constant="15" id="ERT-nl-BH0"/>
+                                    <constraint firstAttribute="width" secondItem="pU7-go-i2Z" secondAttribute="height" multiplier="1:1" id="LWw-V8-T5K"/>
+                                    <constraint firstItem="p1t-Ng-zUg" firstAttribute="top" secondItem="pU7-go-i2Z" secondAttribute="top" constant="15" id="kqU-OB-l8Q"/>
+                                    <constraint firstItem="p1t-Ng-zUg" firstAttribute="leading" secondItem="pU7-go-i2Z" secondAttribute="leading" constant="15" id="nqr-gv-Vdg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bottomLeftImageView" destination="xR9-Ds-grV" id="cT6-0n-cDi"/>
+                                    <outlet property="bottomRightImageview" destination="6mM-Jo-SPW" id="Is0-ZF-VqU"/>
+                                    <outlet property="grid1Button" destination="nxE-zG-zLh" id="8hW-oU-cCx"/>
+                                    <outlet property="grid2Button" destination="eY8-lf-KkG" id="VbO-rD-WQ7"/>
+                                    <outlet property="grid3Button" destination="SYV-0P-aWg" id="mhj-QB-NQR"/>
+                                    <outlet property="topLeftImageView" destination="3W3-7c-hRI" id="eh3-ri-GrV"/>
+                                    <outlet property="topRightImageView" destination="avp-dC-FNd" id="4lV-fE-MOP"/>
+                                    <outletCollection property="mainCollection" destination="3W3-7c-hRI" collectionClass="NSMutableArray" id="60W-Eo-39s"/>
+                                    <outletCollection property="mainCollection" destination="avp-dC-FNd" collectionClass="NSMutableArray" id="uEn-Z5-dna"/>
+                                    <outletCollection property="mainCollection" destination="xR9-Ds-grV" collectionClass="NSMutableArray" id="kUL-WL-CyM"/>
+                                    <outletCollection property="mainCollection" destination="6mM-Jo-SPW" collectionClass="NSMutableArray" id="7jY-ie-FL8"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-Fb-3yk">
+                                <rect key="frame" x="148" y="44" width="118.5" height="39"/>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-hm-hi1" userLabel="Stack View Grid">
+                                <rect key="frame" x="48" y="736" width="318" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-zG-zLh">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nxE-zG-zLh" secondAttribute="height" multiplier="1:1" id="UaZ-hr-3K7"/>
+                                        </constraints>
+                                        <state key="normal" image="Grid 1"/>
+                                        <connections>
+                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="iRX-av-wOB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-lf-KkG">
+                                        <rect key="frame" x="111" y="0.0" width="96" height="96"/>
+                                        <state key="normal" image="Grid 2"/>
+                                        <connections>
+                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="4X5-LS-2tj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-0P-aWg">
+                                        <rect key="frame" x="222" y="0.0" width="96" height="96"/>
+                                        <state key="normal" image="Grid 3"/>
+                                        <connections>
+                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="DQm-lD-epW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="heightClass=compact" axis="vertical"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LnX-iB-xvD" userLabel="Stack View Swipe">
+                                <rect key="frame" x="130" y="225.5" width="154" height="48.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huo-6P-Zjb">
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="20.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="^">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <attributedString key="attributedText">
+                                                <fragment content="&lt;">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTZ-Du-1bI">
+                                        <rect key="frame" x="0.0" y="20.5" width="154" height="28"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Swipe up to share">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <font key="NSFont" size="25" name="Delm-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <attributedString key="attributedText">
+                                                <fragment content="Swipe left to share">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="25" name="Delm-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pU7-go-i2Z" secondAttribute="trailing" constant="38" id="22b-Q7-A3c"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="4ky-6g-YIG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pU7-go-i2Z" secondAttribute="bottom" constant="20" id="5Vi-3u-GJ2">
+                                <variation key="heightClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="LnX-iB-xvD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5zf-PL-Q3K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FIE-hm-hi1" secondAttribute="trailing" constant="48" id="D09-A2-IxX"/>
+                            <constraint firstItem="LnX-iB-xvD" firstAttribute="centerX" secondItem="pU7-go-i2Z" secondAttribute="centerX" id="HpI-Su-tPP"/>
+                            <constraint firstItem="LnX-iB-xvD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="IYt-2Y-RuI"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="top" secondItem="qgh-Fb-3yk" secondAttribute="bottom" constant="122" id="SGi-jp-D6z">
+                                <variation key="heightClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="FIE-hm-hi1" firstAttribute="leading" secondItem="pU7-go-i2Z" secondAttribute="trailing" constant="25" id="TJ1-YT-4fp"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UVa-qS-RU3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FIE-hm-hi1" secondAttribute="bottom" constant="30" id="VnT-Cs-KJH"/>
+                            <constraint firstItem="qgh-Fb-3yk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fsb-LN-cyA"/>
+                            <constraint firstItem="FIE-hm-hi1" firstAttribute="bottom" secondItem="pU7-go-i2Z" secondAttribute="bottom" id="g5B-pb-YM3"/>
+                            <constraint firstItem="qgh-Fb-3yk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="hSb-p9-baZ"/>
+                            <constraint firstItem="FIE-hm-hi1" firstAttribute="top" secondItem="pU7-go-i2Z" secondAttribute="top" id="hlJ-mK-THF"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="leading" secondItem="LnX-iB-xvD" secondAttribute="trailing" constant="10" id="hnC-gu-gVG"/>
+                            <constraint firstItem="FIE-hm-hi1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="lkC-jg-RCd"/>
+                            <constraint firstItem="FIE-hm-hi1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="mYo-Xp-dox"/>
+                            <constraint firstItem="qgh-Fb-3yk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="naX-hf-g5K"/>
+                            <constraint firstAttribute="trailing" secondItem="FIE-hm-hi1" secondAttribute="trailing" constant="10" id="p8w-Et-OHK"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="top" secondItem="LnX-iB-xvD" secondAttribute="bottom" constant="5" id="s4h-AN-EW6"/>
+                            <constraint firstItem="pU7-go-i2Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w5D-QU-38b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5Vi-3u-GJ2"/>
+                                <exclude reference="hSb-p9-baZ"/>
+                                <exclude reference="5zf-PL-Q3K"/>
+                                <exclude reference="IYt-2Y-RuI"/>
+                                <exclude reference="SGi-jp-D6z"/>
+                                <exclude reference="hnC-gu-gVG"/>
+                                <exclude reference="TJ1-YT-4fp"/>
+                                <exclude reference="g5B-pb-YM3"/>
+                                <exclude reference="hlJ-mK-THF"/>
+                                <exclude reference="mYo-Xp-dox"/>
+                                <exclude reference="p8w-Et-OHK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="22b-Q7-A3c"/>
+                                <include reference="5Vi-3u-GJ2"/>
+                                <exclude reference="D09-A2-IxX"/>
+                                <exclude reference="VnT-Cs-KJH"/>
+                                <exclude reference="fsb-LN-cyA"/>
+                                <include reference="hSb-p9-baZ"/>
+                                <include reference="5zf-PL-Q3K"/>
+                                <exclude reference="HpI-Su-tPP"/>
+                                <include reference="IYt-2Y-RuI"/>
+                                <exclude reference="4ky-6g-YIG"/>
+                                <include reference="SGi-jp-D6z"/>
+                                <include reference="hnC-gu-gVG"/>
+                                <exclude reference="s4h-AN-EW6"/>
+                                <include reference="TJ1-YT-4fp"/>
+                                <include reference="g5B-pb-YM3"/>
+                                <include reference="hlJ-mK-THF"/>
+                                <exclude reference="lkC-jg-RCd"/>
+                                <exclude reference="mYo-Xp-dox"/>
+                                <exclude reference="p8w-Et-OHK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="swipeStackView" destination="LnX-iB-xvD" id="aOr-S4-5OK"/>
+                        <outlet property="viewToShare" destination="pU7-go-i2Z" id="T6d-DP-09J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4cK-iP-omn" userLabel="Tap Gesture Recognizer TL">
+                    <connections>
+                        <action selector="tapToPickPhoto:" destination="BYZ-38-t0r" id="nPk-h8-sKr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WN6-OH-dVn" userLabel="Tap Gesture Recognizer TR">
+                    <connections>
+                        <action selector="tapToPickPhoto:" destination="BYZ-38-t0r" id="LXB-pA-7d2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="RyI-JR-iWp" userLabel="Tap Gesture Recognizer BL">
+                    <connections>
+                        <action selector="tapToPickPhoto:" destination="BYZ-38-t0r" id="tRx-84-E2e"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tF0-eN-5TR" userLabel="Tap Gesture Recognizer BR">
+                    <connections>
+                        <action selector="tapToPickPhoto:" destination="BYZ-38-t0r" id="mUK-uF-LnP"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Grid 1" width="100" height="100"/>
+        <image name="Grid 2" width="100" height="100"/>
+        <image name="Grid 3" width="100" height="100"/>
+        <image name="Plus" width="13.5" height="13.5"/>
+    </resources>
+</document>
