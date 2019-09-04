@@ -25,7 +25,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app uses photos from your Library.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>To save grid in your photo library</string>
+	<string>We need to save your composition.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -14,15 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeStackView: UIStackView!
     
     private var _imageTapped: UIImageView?
-    // Create an instance of swipeGestureRecognizer.
+    // Make an instance of swipeGestureRecognizer.
     private var _swipeGesture = UISwipeGestureRecognizer()
-    // Create an instance of ImagePickerController.
+    // Make an instance of ImagePickerController.
     private let _imagePicker = UIImagePickerController()
     private var _effects = Effects()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _imagePicker.delegate = self
         viewToShare.defaultLayout()
         _effects.shadow(viewToShare)
         swipeDirection()
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
     
     /// Select the source, Library or Camera.
     private func alertSelectSourcePhotos() {
-        _imagePicker.delegate = self
+        
         let alertController = UIAlertController(title: "Import a photo", message: "Choose a source", preferredStyle: .alert)
         // add an action to the alert and open Library.
         alertController.addAction(UIAlertAction(title: "From Library", style: .default, handler: { (action) in
@@ -83,11 +84,12 @@ class ViewController: UIViewController {
     
     /// Add the swipe gesture for each direction.
     private func swipeDirection() {
+        // Adding two gesture up and left.
         let directions: [UISwipeGestureRecognizer.Direction] = [.up, .left]
         directions.forEach { direction in
             _swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
-            swipeStackView.addGestureRecognizer(_swipeGesture)
             _swipeGesture.direction = direction
+            swipeStackView.addGestureRecognizer(_swipeGesture)
         }
     }
     
@@ -151,7 +153,7 @@ class ViewController: UIViewController {
         if let image = convertToImage(view: viewToShare) {
             let shareContent = [image]
             let activityController = UIActivityViewController(activityItems: shareContent, applicationActivities: nil)
-            // Inside this closure we can check if the sharing is success.
+            // Inside this closure we can check the activity type.
             activityController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in if completed {
                     self.presentAlert(title: "🤘", message: "You're image have been shared with succes", isShareAlert: true)
                         self._effects.soundShare()
@@ -192,6 +194,7 @@ extension ViewController {
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+     // When the user pick something.
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let photoToLoad = _imageTapped else { return }
         // if the image is edited with "allowsEditing", check if it's an UIImage.
@@ -209,6 +212,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         dismiss(animated: true, completion: nil)
     }
     
+    // When the user taps the "Cancel" button.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
