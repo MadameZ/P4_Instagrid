@@ -49,7 +49,6 @@ class ViewController: UIViewController {
     
     /// Select the source, Library or Camera.
     private func alertSelectSourcePhotos() {
-        
         let alertController = UIAlertController(title: "Import a photo", message: "Choose a source", preferredStyle: .alert)
         // add an action to the alert and open Library.
         alertController.addAction(UIAlertAction(title: "From Library", style: .default, handler: { (action) in
@@ -77,6 +76,7 @@ class ViewController: UIViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             _imagePicker.sourceType = .camera
             present(_imagePicker, animated: true, completion: nil)
+            viewToShare.photoCounter += 1
         } else {
             self.presentAlert(title: "Ooops", message: "You don't have a camera", isShareAlert: false)
         }
@@ -88,8 +88,8 @@ class ViewController: UIViewController {
         let directions: [UISwipeGestureRecognizer.Direction] = [.up, .left]
         directions.forEach { direction in
             _swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
-            _swipeGesture.direction = direction
             swipeStackView.addGestureRecognizer(_swipeGesture)
+            _swipeGesture.direction = direction
         }
     }
     
@@ -192,8 +192,7 @@ extension ViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {  
      // When the user pick something.
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let photoToLoad = _imageTapped else { return }

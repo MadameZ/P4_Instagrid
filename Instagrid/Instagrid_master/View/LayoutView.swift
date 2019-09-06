@@ -114,11 +114,11 @@ class LayoutView: UIView {
     func isMissingPhoto() -> Bool {
         switch layoutSelected {
         case .layout1:
-            if photoCounter < 3 || bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus"){
+            if topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") || bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") {
                 return true
             }
         case .layout2:
-            if photoCounter < 3 || topLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus") {
+            if topLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
                return true
             }
         case .layout3:
