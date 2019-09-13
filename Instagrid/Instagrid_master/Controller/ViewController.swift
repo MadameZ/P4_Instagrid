@@ -9,17 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    // MARK: - Outlets
     @IBOutlet weak var viewToShare: LayoutView!
     @IBOutlet weak var swipeStackView: UIStackView!
     
+    // MARK: - Properties
     private var _imageTapped: UIImageView?
-    // Make an instance of swipeGestureRecognizer.
-    private var _swipeGesture = UISwipeGestureRecognizer()
     // Make an instance of ImagePickerController.
     private let _imagePicker = UIImagePickerController()
     private var _effects = Effects()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,13 @@ class ViewController: UIViewController {
         swipeDirection()
     }
     
-    /// Touch with tapGesture on UIImageView to add photo .
+    // MARK: Actions
+    /// Connexion with the grid button.
+    @IBAction func didTapGridButton(_ sender: UIButton) {
+        viewToShare.gridButtonSelected(sender)
+    }
+    
+    /// Connexion with 4 tapGestures on storyboard.
     @IBAction func tapToPickPhoto(_ sender: UITapGestureRecognizer) {
         tapGesture(sender)
     }
@@ -76,7 +80,6 @@ class ViewController: UIViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             _imagePicker.sourceType = .camera
             present(_imagePicker, animated: true, completion: nil)
-            viewToShare.photoCounter += 1
         } else {
             self.presentAlert(title: "Ooops", message: "You don't have a camera", isShareAlert: false)
         }
@@ -87,7 +90,8 @@ class ViewController: UIViewController {
         // Adding two gesture up and left.
         let directions: [UISwipeGestureRecognizer.Direction] = [.up, .left]
         directions.forEach { direction in
-            _swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
+            // Initialisation of the swipeGestureRecognizer.
+            let _swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
             swipeStackView.addGestureRecognizer(_swipeGesture)
             _swipeGesture.direction = direction
         }
@@ -96,14 +100,14 @@ class ViewController: UIViewController {
     /// handle the gesture for the swipe.
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .up && UIDevice.current.orientation.isPortrait {
-            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
                 self.swipeMoveUp(stackview: self.swipeStackView)
             }) { (finished) in
                 self.swipeMoveBack(stackview: self.swipeStackView)
             }
                 conditionsToShare()
         } else if gesture.direction == .left && UIDevice.current.orientation.isLandscape {
-            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
                 self.swipeMoveLeft(stackview: self.swipeStackView)
             }) { (finished) in
                 self.swipeMoveBack(stackview: self.swipeStackView)
@@ -125,11 +129,30 @@ class ViewController: UIViewController {
     
     /// Conditions to share when the user swipe.
     private func conditionsToShare() {
-        if viewToShare.isMissingPhoto() {
+        if isMissingPhoto() {
             presentAlert(title: "Oups!", message: "Some photos are missing", isShareAlert: false)
         } else {
             self.share()
         }
+    }
+     /// Check if the grid is complete before sharing.
+    func isMissingPhoto() -> Bool {
+        switch viewToShare.layoutSelected {
+        case .layout1:
+            if viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") ||  viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") ||
+                viewToShare.bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") {
+               return true
+        }
+        case .layout2:
+            if viewToShare.topLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
+                return true
+            }
+        case .layout3:
+            if viewToShare.topLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
+                return true
+            }
+        }
+        return false
     }
     
     /// Convert the viewToShare.
@@ -156,9 +179,7 @@ class ViewController: UIViewController {
             // Inside this closure we can check the activity type.
             activityController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in if completed {
                     self.presentAlert(title: "🤘", message: "You're image have been shared with succes", isShareAlert: true)
-                        self._effects.soundShare()
-                        self._effects.blur(self.viewToShare)
-                        self.viewToShare.photoCounter = 0
+                    self._effects.blur(self.viewToShare)
                 }
             }
             present(activityController, animated: true, completion: nil)
@@ -200,12 +221,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         if let editedImage = info[.editedImage] as? UIImage {
             photoToLoad.image = editedImage
             photoToLoad.contentMode = .scaleAspectFill
-            viewToShare.photoCounter += 1
           // If the image is original.
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             photoToLoad.image = originalImage
             photoToLoad.contentMode = .scaleAspectFill
-            viewToShare.photoCounter += 1
+
         }
         // CLose the picker.
         dismiss(animated: true, completion: nil)

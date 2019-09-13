@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import AVFoundation
+
 
 class Effects: UIView {
+    
     var blurView = UIVisualEffectView()
-    var audioPlayer = AVAudioPlayer()
     
     func defaultLayoutAnimation(_ view: LayoutView) {
         // reset any changes, increase the scale and animate it.
@@ -38,17 +38,5 @@ class Effects: UIView {
             self.blurView.removeFromSuperview()
         }
     }
-    
-    func soundShare() {
-        let sound = Bundle.main.path(forResource: "Sample", ofType: "wav")
-        do {
-            guard let soundPlay = sound else { return }
-           audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPlay))
-        } catch {
-            print(error)
-        }
-        audioPlayer.play()
-    }
-    
     
 }

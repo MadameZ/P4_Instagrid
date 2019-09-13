@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="landscape">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,20 +20,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid_master" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-Fb-3yk">
+                                <rect key="frame" x="148" y="44" width="118.5" height="39"/>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="22"/>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pU7-go-i2Z" userLabel="View Background Blue" customClass="LayoutView" customModule="Instagrid_master" customModuleProvider="target">
-                                <rect key="frame" x="164" y="40" width="240" height="240"/>
+                                <rect key="frame" x="38" y="279" width="338" height="338"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="p1t-Ng-zUg">
-                                        <rect key="frame" x="15" y="15" width="210" height="210"/>
+                                        <rect key="frame" x="15" y="15" width="308" height="308"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8M5-w2-YhJ" userLabel="Stack View Top">
-                                                <rect key="frame" x="0.0" y="0.0" width="210" height="97.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="146.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-7c-hRI" userLabel="topLeft_imageView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="146.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -41,7 +50,7 @@
                                                         </connections>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="avp-dC-FNd" userLabel="topRight_imageView">
-                                                        <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
+                                                        <rect key="frame" x="161.5" y="0.0" width="146.5" height="146.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -51,10 +60,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vxl-yp-9Ef" userLabel="Stack View Bottom">
-                                                <rect key="frame" x="0.0" y="112.5" width="210" height="97.5"/>
+                                                <rect key="frame" x="0.0" y="161.5" width="308" height="146.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="xR9-Ds-grV" userLabel="bottomLeft_imageView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="97.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="146.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -62,7 +71,7 @@
                                                         </connections>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="6mM-Jo-SPW" userLabel="bottomRight_imageView">
-                                                        <rect key="frame" x="112.5" y="0.0" width="97.5" height="97.5"/>
+                                                        <rect key="frame" x="161.5" y="0.0" width="146.5" height="146.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -96,50 +105,11 @@
                                     <outletCollection property="mainCollection" destination="6mM-Jo-SPW" collectionClass="NSMutableArray" id="7jY-ie-FL8"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-Fb-3yk">
-                                <rect key="frame" x="240.5" y="10" width="87" height="25"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact">
-                                    <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="22"/>
-                                </variation>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-hm-hi1" userLabel="Stack View Grid">
-                                <rect key="frame" x="429" y="40" width="70" height="240"/>
-                                <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-zG-zLh">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="nxE-zG-zLh" secondAttribute="height" multiplier="1:1" id="UaZ-hr-3K7"/>
-                                        </constraints>
-                                        <state key="normal" image="Grid 1"/>
-                                        <connections>
-                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="iRX-av-wOB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-lf-KkG">
-                                        <rect key="frame" x="0.0" y="85" width="70" height="70"/>
-                                        <state key="normal" image="Grid 2"/>
-                                        <connections>
-                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="4X5-LS-2tj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-0P-aWg">
-                                        <rect key="frame" x="0.0" y="170" width="70" height="70"/>
-                                        <state key="normal" image="Grid 3"/>
-                                        <connections>
-                                            <action selector="didTapGrid:" destination="pU7-go-i2Z" eventType="touchUpInside" id="DQm-lD-epW"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <variation key="heightClass=compact" axis="vertical"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LnX-iB-xvD" userLabel="Stack View Swipe">
-                                <rect key="frame" x="10" y="122" width="144" height="76"/>
+                                <rect key="frame" x="130" y="225.5" width="154" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huo-6P-Zjb">
-                                        <rect key="frame" x="0.0" y="0.0" width="144" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="20.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="^">
                                                 <attributes>
@@ -163,7 +133,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTZ-Du-1bI">
-                                        <rect key="frame" x="0.0" y="20.5" width="144" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="154" height="28"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -187,6 +157,36 @@
                                         </variation>
                                     </label>
                                 </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-hm-hi1" userLabel="Stack View Grid">
+                                <rect key="frame" x="48" y="736" width="318" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-zG-zLh">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nxE-zG-zLh" secondAttribute="height" multiplier="1:1" id="UaZ-hr-3K7"/>
+                                        </constraints>
+                                        <state key="normal" image="Grid 1"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9f4-W6-cbA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-lf-KkG">
+                                        <rect key="frame" x="111" y="0.0" width="96" height="96"/>
+                                        <state key="normal" image="Grid 2"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0g-v3-F9W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-0P-aWg">
+                                        <rect key="frame" x="222" y="0.0" width="96" height="96"/>
+                                        <state key="normal" image="Grid 3"/>
+                                        <connections>
+                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0U2-RF-blK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="heightClass=compact" axis="vertical"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

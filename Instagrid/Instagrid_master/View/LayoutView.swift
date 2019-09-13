@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// Layout enumaration.
+/// Layout enumeration.
 enum Layout {
     case layout1, layout2, layout3
 }
-/// Grid enumaration.
+/// Grid enumeration.
 enum Grid {
     case grid1, grid2, grid3
 }
@@ -26,11 +26,9 @@ class LayoutView: UIView {
     // Outlet collection for the main view.
     @IBOutlet var mainCollection: [UIImageView]!
     
-    @IBOutlet weak var grid1Button: UIButton!
-    @IBOutlet weak var grid2Button: UIButton!
-    @IBOutlet weak var grid3Button: UIButton!
-    
-    var photoCounter: Int = 0
+    @IBOutlet private var grid1Button: UIButton!
+    @IBOutlet private var grid2Button: UIButton!
+    @IBOutlet private var grid3Button: UIButton!
     
     var layoutSelected: Layout = .layout2{
         didSet {
@@ -66,8 +64,8 @@ class LayoutView: UIView {
         }
     }
     
-    /// Action with the gridButton.
-    @IBAction func didTapGrid(_ sender: UIButton) {
+    /// Action with the gridButton in viewController
+    func gridButtonSelected(_ sender: UIButton) {
         // Reset all the buttons wich was selected before.
         grid1Button.isSelected = false
         grid2Button.isSelected = false
@@ -77,6 +75,7 @@ class LayoutView: UIView {
         // Change the style of the main Collection.
         gridSelected(sender)
     }
+    
     /// Change the layout and the image grid when the user tap the buton.
     private func gridSelected(_ button: UIButton) {
         if button == self.grid1Button {
@@ -109,24 +108,5 @@ class LayoutView: UIView {
         bottomLeftImageView.contentMode = .center
         topRightImageView.contentMode = .center
         bottomRightImageview.contentMode = .center
-    }
-    /// Check if the grid is complete before sharing.
-    func isMissingPhoto() -> Bool {
-        switch layoutSelected {
-        case .layout1:
-            if topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") || bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") {
-                return true
-            }
-        case .layout2:
-            if topLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
-               return true
-            }
-        case .layout3:
-            if photoCounter < 4 {
-                return true
-            }
-        }
-        return false
-    }
-   
+    }   
 }

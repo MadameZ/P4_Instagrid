@@ -14,7 +14,6 @@
 		BD20398C22F43A3700F975B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD20398A22F43A3700F975B5 /* LaunchScreen.storyboard */; };
 		BD20399B22F4821E00F975B5 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD20399922F4821D00F975B5 /* Delm-Medium.otf */; };
 		BD20399C22F4821E00F975B5 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BD20399A22F4821D00F975B5 /* ThirstySoftRegular.otf */; };
-		BD289D3122F48FB20056485C /* Sample.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD289D3022F48FB20056485C /* Sample.wav */; };
 		BD289D3522F48FDA0056485C /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD289D3422F48FDA0056485C /* Effects.swift */; };
 		BD289D3922F493CD0056485C /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD289D3822F493CD0056485C /* LayoutView.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		BD20398D22F43A3700F975B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD20399922F4821D00F975B5 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		BD20399A22F4821D00F975B5 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		BD289D3022F48FB20056485C /* Sample.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sample.wav; sourceTree = "<group>"; };
 		BD289D3422F48FDA0056485C /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		BD289D3822F493CD0056485C /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +104,6 @@
 				BD20398A22F43A3700F975B5 /* LaunchScreen.storyboard */,
 				BD20399922F4821D00F975B5 /* Delm-Medium.otf */,
 				BD20399A22F4821D00F975B5 /* ThirstySoftRegular.otf */,
-				BD289D3022F48FB20056485C /* Sample.wav */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,7 +171,6 @@
 				BD20399B22F4821E00F975B5 /* Delm-Medium.otf in Resources */,
 				BD20398922F43A3700F975B5 /* Assets.xcassets in Resources */,
 				BD20398722F43A3500F975B5 /* Main.storyboard in Resources */,
-				BD289D3122F48FB20056485C /* Sample.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
