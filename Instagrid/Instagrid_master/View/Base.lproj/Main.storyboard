@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-Fb-3yk">
-                                <rect key="frame" x="148" y="44" width="118.5" height="39"/>
+                                <rect key="frame" x="148.5" y="44" width="117" height="35"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -106,10 +106,10 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LnX-iB-xvD" userLabel="Stack View Swipe">
-                                <rect key="frame" x="130" y="225.5" width="154" height="48.5"/>
+                                <rect key="frame" x="106" y="224" width="202" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huo-6P-Zjb">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="20.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="^">
                                                 <attributes>
@@ -133,7 +133,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTZ-Du-1bI">
-                                        <rect key="frame" x="0.0" y="20.5" width="154" height="28"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="202" height="29.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -168,21 +168,21 @@
                                         </constraints>
                                         <state key="normal" image="Grid 1"/>
                                         <connections>
-                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9f4-W6-cbA"/>
+                                            <action selector="tapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bVw-B5-8Jf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-lf-KkG">
                                         <rect key="frame" x="111" y="0.0" width="96" height="96"/>
                                         <state key="normal" image="Grid 2"/>
                                         <connections>
-                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0g-v3-F9W"/>
+                                            <action selector="tapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="twO-uw-3N5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-0P-aWg">
                                         <rect key="frame" x="222" y="0.0" width="96" height="96"/>
                                         <state key="normal" image="Grid 3"/>
                                         <connections>
-                                            <action selector="didTapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0U2-RF-blK"/>
+                                            <action selector="tapGridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fg8-uC-N9g"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -222,11 +222,11 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="5Vi-3u-GJ2"/>
-                                <exclude reference="hSb-p9-baZ"/>
-                                <exclude reference="5zf-PL-Q3K"/>
-                                <exclude reference="IYt-2Y-RuI"/>
                                 <exclude reference="SGi-jp-D6z"/>
                                 <exclude reference="hnC-gu-gVG"/>
+                                <exclude reference="5zf-PL-Q3K"/>
+                                <exclude reference="IYt-2Y-RuI"/>
+                                <exclude reference="hSb-p9-baZ"/>
                                 <exclude reference="TJ1-YT-4fp"/>
                                 <exclude reference="g5B-pb-YM3"/>
                                 <exclude reference="hlJ-mK-THF"/>
@@ -240,15 +240,15 @@
                                 <include reference="5Vi-3u-GJ2"/>
                                 <exclude reference="D09-A2-IxX"/>
                                 <exclude reference="VnT-Cs-KJH"/>
-                                <exclude reference="fsb-LN-cyA"/>
-                                <include reference="hSb-p9-baZ"/>
-                                <include reference="5zf-PL-Q3K"/>
-                                <exclude reference="HpI-Su-tPP"/>
-                                <include reference="IYt-2Y-RuI"/>
                                 <exclude reference="4ky-6g-YIG"/>
                                 <include reference="SGi-jp-D6z"/>
                                 <include reference="hnC-gu-gVG"/>
                                 <exclude reference="s4h-AN-EW6"/>
+                                <include reference="5zf-PL-Q3K"/>
+                                <exclude reference="HpI-Su-tPP"/>
+                                <include reference="IYt-2Y-RuI"/>
+                                <exclude reference="fsb-LN-cyA"/>
+                                <include reference="hSb-p9-baZ"/>
                                 <include reference="TJ1-YT-4fp"/>
                                 <include reference="g5B-pb-YM3"/>
                                 <include reference="hlJ-mK-THF"/>

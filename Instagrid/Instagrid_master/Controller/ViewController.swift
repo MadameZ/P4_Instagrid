@@ -28,17 +28,16 @@ class ViewController: UIViewController {
     }
     
     // MARK: Actions
-    /// Connexion with the grid button.
-    @IBAction func didTapGridButton(_ sender: UIButton) {
+    @IBAction func tapGridButton(_ sender: UIButton) {
         viewToShare.gridButtonSelected(sender)
     }
-    
     /// Connexion with 4 tapGestures on storyboard.
     @IBAction func tapToPickPhoto(_ sender: UITapGestureRecognizer) {
         tapGesture(sender)
     }
     
-    /// The method for tapGesture.
+    // MARK: - Methods
+    /// Method for tapGesture.
     private func tapGesture(_ sender: UITapGestureRecognizer) {
         viewToShare.mainCollection.forEach { image in
             // Look at the centroid of the touches involved for the tap gesture.
@@ -97,7 +96,7 @@ class ViewController: UIViewController {
         }
     }
     
-    /// handle the gesture for the swipe.
+    /// handle the gesture for the swipe according to device orientation.
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .up && UIDevice.current.orientation.isPortrait {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
@@ -129,47 +128,13 @@ class ViewController: UIViewController {
     
     /// Conditions to share when the user swipe.
     private func conditionsToShare() {
-        if isMissingPhoto() {
+        if viewToShare.isMissingPhoto() {
             presentAlert(title: "Oups!", message: "Some photos are missing", isShareAlert: false)
         } else {
             self.share()
         }
     }
-     /// Check if the grid is complete before sharing.
-    func isMissingPhoto() -> Bool {
-        switch viewToShare.layoutSelected {
-        case .layout1:
-            if viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") ||  viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") ||
-                viewToShare.bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") {
-               return true
-        }
-        case .layout2:
-            if viewToShare.topLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
-                return true
-            }
-        case .layout3:
-            if viewToShare.topLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.topRightImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") || viewToShare.bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
-                return true
-            }
-        }
-        return false
-    }
-    
-    /// Convert the viewToShare.
-    private func convertToImage(view: UIView) -> UIImage? {
-        // pass it the size,  the image should be opaque and the currnt scale
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: viewToShare.bounds, afterScreenUpdates: true)
-        // give a context and extract a UIImage from the rendering.
-        if let context = UIGraphicsGetCurrentContext(), let getImage = UIGraphicsGetImageFromCurrentImageContext() {
-            view.layer.render(in: context)
-            // when it finished, free up the memory from your rendering.
-            UIGraphicsEndImageContext()
-            return getImage
-        }
-        return nil
-    }
-    
+
     /// Share the viewToShare.
     private func share() {
         // Convert the image.
@@ -186,6 +151,20 @@ class ViewController: UIViewController {
         }
     }
     
+    /// Convert the viewToShare.
+    private func convertToImage(view: UIView) -> UIImage? {
+        // pass it the size,  the image should be opaque and the currnt scale
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: viewToShare.bounds, afterScreenUpdates: true)
+        // give a context and extract a UIImage from the rendering.
+        if let context = UIGraphicsGetCurrentContext(), let getImage = UIGraphicsGetImageFromCurrentImageContext() {
+            view.layer.render(in: context)
+            // when it finished, free up the memory from your rendering.
+            UIGraphicsEndImageContext()
+            return getImage
+        }
+        return nil
+    }
 
 }
 
@@ -214,7 +193,7 @@ extension ViewController {
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {  
-     // When the user pick something.
+     // When the user pick something. The constant "photoToLoad" is the image selected.
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let photoToLoad = _imageTapped else { return }
         // if the image is edited with "allowsEditing", check if it's an UIImage.
@@ -228,11 +207,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
         }
         // CLose the picker.
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // When the user taps the "Cancel" button.
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }

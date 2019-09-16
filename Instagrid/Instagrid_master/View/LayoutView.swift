@@ -18,7 +18,7 @@ enum Grid {
 }
 
 class LayoutView: UIView {
-
+    // MARK: - Outlets
     @IBOutlet weak var topLeftImageView: UIImageView!
     @IBOutlet weak var bottomLeftImageView: UIImageView!
     @IBOutlet weak var topRightImageView: UIImageView!
@@ -30,6 +30,7 @@ class LayoutView: UIView {
     @IBOutlet private var grid2Button: UIButton!
     @IBOutlet private var grid3Button: UIButton!
     
+    // MARK: - Properties
     var layoutSelected: Layout = .layout2{
         didSet {
             changeLayout(layoutSelected)
@@ -41,6 +42,8 @@ class LayoutView: UIView {
             changeImageGrid(imageGrid)
         }
     }
+    
+    // MARK: - Methods
     /// Change the appearence of layout.
     private func changeLayout(_ layout: Layout) {
         switch layout {
@@ -55,7 +58,7 @@ class LayoutView: UIView {
             bottomLeftImageView.isHidden = false
         }
     }
-    /// Change the appearence of the grid when it selected.
+    /// Change the appearence of the button when it selected.
     private func changeImageGrid(_ grid: Grid) {
         switch grid {
         case .grid1: grid1Button.setImage(#imageLiteral(resourceName: "Grid 1 Selected"), for: .selected)
@@ -64,7 +67,7 @@ class LayoutView: UIView {
         }
     }
     
-    /// Action with the gridButton in viewController
+    /// Action with the grid Button in viewController
     func gridButtonSelected(_ sender: UIButton) {
         // Reset all the buttons wich was selected before.
         grid1Button.isSelected = false
@@ -76,7 +79,7 @@ class LayoutView: UIView {
         gridSelected(sender)
     }
     
-    /// Change the layout and the image grid when the user tap the buton.
+    /// Change the layout according with grids buttons.
     private func gridSelected(_ button: UIButton) {
         if button == self.grid1Button {
             self.layoutSelected = .layout1
@@ -89,7 +92,6 @@ class LayoutView: UIView {
             self.imageGrid = .grid3
         }
     }
-    
     
     /// Appearence of the default layout.
     func defaultLayout() {
@@ -108,5 +110,25 @@ class LayoutView: UIView {
         bottomLeftImageView.contentMode = .center
         topRightImageView.contentMode = .center
         bottomRightImageview.contentMode = .center
-    }   
+    }
+    
+    /// Check if the grid is complete before sharing.
+    func isMissingPhoto() -> Bool {
+        switch layoutSelected {
+        case .layout1:
+            if topRightImageView.image == #imageLiteral(resourceName: "Plus") ||  bottomRightImageview.image == #imageLiteral(resourceName: "Plus") ||
+                bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") {
+                return true
+            }
+        case .layout2:
+            if topLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
+                return true
+            }
+        case .layout3:
+            if topLeftImageView.image == #imageLiteral(resourceName: "Plus") || topRightImageView.image == #imageLiteral(resourceName: "Plus") || bottomLeftImageView.image == #imageLiteral(resourceName: "Plus") || bottomRightImageview.image == #imageLiteral(resourceName: "Plus") {
+                return true
+            }
+        }
+        return false
+    }
 }

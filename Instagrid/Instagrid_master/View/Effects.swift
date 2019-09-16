@@ -13,15 +13,6 @@ class Effects: UIView {
     
     var blurView = UIVisualEffectView()
     
-    func defaultLayoutAnimation(_ view: LayoutView) {
-        // reset any changes, increase the scale and animate it.
-        view.transform = .identity
-        view.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.1, options: [], animations: {
-            view.transform = .identity
-        })
-    }
-    
     func shadow(_ view: LayoutView) {
         view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         view.layer.shadowOpacity = 0.5
@@ -39,4 +30,12 @@ class Effects: UIView {
         }
     }
     
+    func defaultLayoutAnimation(_ view: LayoutView) {
+        // reset any changes, increase the scale and animate it.
+        view.transform = .identity
+        view.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.1, options: [], animations: {
+            view.transform = .identity
+        })
+    }
 }
