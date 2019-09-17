@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// Layout enumeration.
+/// Define the apparence of the principal layout.
 enum Layout {
     case layout1, layout2, layout3
 }
-/// Grid enumeration.
+/// Define the apparence of the three buttons.
 enum Grid {
     case grid1, grid2, grid3
 }
@@ -23,7 +23,7 @@ class LayoutView: UIView {
     @IBOutlet weak var bottomLeftImageView: UIImageView!
     @IBOutlet weak var topRightImageView: UIImageView!
     @IBOutlet weak var bottomRightImageview: UIImageView!
-    // Outlet collection for the main view.
+    // Outlet collection include each images of the layout.
     @IBOutlet var mainCollection: [UIImageView]!
     
     @IBOutlet private var grid1Button: UIButton!
@@ -44,7 +44,7 @@ class LayoutView: UIView {
     }
     
     // MARK: - Methods
-    /// Change the appearence of layout.
+    /// Define the appearence of layout.
     private func changeLayout(_ layout: Layout) {
         switch layout {
         case .layout1:
@@ -58,7 +58,7 @@ class LayoutView: UIView {
             bottomLeftImageView.isHidden = false
         }
     }
-    /// Change the appearence of the button when it selected.
+    /// Define the appearence of the button when it selected.
     private func changeImageGrid(_ grid: Grid) {
         switch grid {
         case .grid1: grid1Button.setImage(#imageLiteral(resourceName: "Grid 1 Selected"), for: .selected)
@@ -67,7 +67,7 @@ class LayoutView: UIView {
         }
     }
     
-    /// Called in the Action with the grid Button in viewController
+    /// Called in the viewController by the IBAction.
     func gridButtonSelected(_ sender: UIButton) {
         // Reset all the buttons wich was selected before.
         grid1Button.isSelected = false
@@ -79,7 +79,7 @@ class LayoutView: UIView {
         gridSelected(sender)
     }
     
-    /// Change the layout according with grids buttons.
+    /// Change the layout according with image of buttons.
     private func gridSelected(_ button: UIButton) {
         if button == self.grid1Button {
             self.layoutSelected = .layout1

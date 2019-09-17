@@ -16,7 +16,7 @@ class Effects: UIView {
     func shadow(_ view: LayoutView) {
         view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         view.layer.shadowOpacity = 0.5
-        // Sets how far away from the view the shadow should be, to give a 3D offset effect.
+        // To give a 3D offset effect. Sets how far away from the view the shadow should be, .
         view.layer.shadowOffset = CGSize(width: 5, height: 5)
     }
     
@@ -31,7 +31,7 @@ class Effects: UIView {
     }
     
     func defaultLayoutAnimation(_ view: LayoutView) {
-        // Reset any changes, increase the scale and animate it.
+        // Reset any changes with the property transform, increase the scale and animate it.
         view.transform = .identity
         view.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.1, options: [], animations: {

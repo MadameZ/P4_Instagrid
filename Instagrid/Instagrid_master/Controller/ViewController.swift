@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // To handle events in ViewController for the UIImagePickerController .
+        // To handle events for the PickerController in ViewController.
         _imagePicker.delegate = self
         viewToShare.defaultLayout()
         _effects.shadow(viewToShare)
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     /// Method for tapGesture.
     private func tapGesture(_ sender: UITapGestureRecognizer) {
         viewToShare.mainCollection.forEach { image in
-            // If the user touch the image. Look at the centroid of the touches involved for the tap gesture.
+            // For each iamge,if the user touch the image. Look at the centroid of the touches involved for the tap gesture.
             let touchPoint = sender.location(in: image)
             if image.point(inside: touchPoint, with: nil) {
                 _imageTapped = image
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     
     /// Add the swipe gesture for each direction.
     private func swipeDirection() {
-        // The swipeGesture only listen to two directions up and left.
+        // The swipeGesture listen to two directions up and left.
         let directions: [UISwipeGestureRecognizer.Direction] = [.up, .left]
         directions.forEach { direction in
             // Initialisation of the swipeGestureRecognizer and add the gesture to our view "swipStackView".
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
         if let image = convertToImage(view: viewToShare) {
             let shareContent = [image]
             let activityController = UIActivityViewController(activityItems: shareContent, applicationActivities: nil)
-            // Inside this closure we can check the activity type.
+            // Give actions when the image have been shared.
             activityController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in if completed {
                     self.presentAlert(title: "🤘", message: "You're image have been shared with succes", isShareAlert: true)
                     self._effects.blur(self.viewToShare)
@@ -154,7 +154,7 @@ class ViewController: UIViewController {
     
     /// Convert the viewToShare.
     private func convertToImage(view: UIView) -> UIImage? {
-        // Create a context for the view.
+        // Give a context for the view.
         UIGraphicsBeginImageContextWithOptions(view.frame.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: viewToShare.bounds, afterScreenUpdates: true)
         // give a context and extract a UIImage from the rendering.
@@ -209,6 +209,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
         }
         // CLose the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // This is called when the user taps the "Cancel" button.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
