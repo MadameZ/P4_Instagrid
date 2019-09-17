@@ -15,12 +15,13 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     private var _imageTapped: UIImageView?
-    // Make an instance of ImagePickerController.
+    // Initialize the ImagePickerController and Effects.
     private let _imagePicker = UIImagePickerController()
     private var _effects = Effects()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // To handle events in ViewController for the UIImagePickerController .
         _imagePicker.delegate = self
         viewToShare.defaultLayout()
         _effects.shadow(viewToShare)
@@ -40,9 +41,8 @@ class ViewController: UIViewController {
     /// Method for tapGesture.
     private func tapGesture(_ sender: UITapGestureRecognizer) {
         viewToShare.mainCollection.forEach { image in
-            // Look at the centroid of the touches involved for the tap gesture.
+            // If the user touch the image. Look at the centroid of the touches involved for the tap gesture.
             let touchPoint = sender.location(in: image)
-            // If the user touch the image.
             if image.point(inside: touchPoint, with: nil) {
                 _imageTapped = image
                 alertSelectSourcePhotos()
@@ -50,20 +50,21 @@ class ViewController: UIViewController {
         }
     }
     
-    /// Select the source, Library or Camera.
+    /// Alert to select the source, Library or Camera.
     private func alertSelectSourcePhotos() {
+        // Initialize the UIAlertController.
         let alertController = UIAlertController(title: "Import a photo", message: "Choose a source", preferredStyle: .alert)
-        // add an action to the alert and open Library.
-        alertController.addAction(UIAlertAction(title: "From Library", style: .default, handler: { (action) in
+        // Add an action to the alert. Then the action openLibrary in the closure will be executed.
+        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
             self.openLibrary()
         }))
-        // add an action to the alert and open Camera.
-        alertController.addAction(UIAlertAction(title: "To take a photo", style: .default, handler: { (action) in
+        // Add an action to the alert and open Camera.
+        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
             self.openCamera()
         }))
-        // add the cancel action.
+        // Add the cancel action.
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        // display it.
+        // Display it to the user.
         self.present(alertController, animated: true, completion: nil)
     }
     
@@ -86,17 +87,17 @@ class ViewController: UIViewController {
     
     /// Add the swipe gesture for each direction.
     private func swipeDirection() {
-        // Adding two gesture up and left.
+        // The swipeGesture only listen to two directions up and left.
         let directions: [UISwipeGestureRecognizer.Direction] = [.up, .left]
         directions.forEach { direction in
-            // Initialisation of the swipeGestureRecognizer.
+            // Initialisation of the swipeGestureRecognizer and add the gesture to our view "swipStackView".
             let _swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
-            swipeStackView.addGestureRecognizer(_swipeGesture)
             _swipeGesture.direction = direction
+            swipeStackView.addGestureRecognizer(_swipeGesture)
         }
     }
     
-    /// handle the gesture for the swipe according to device orientation.
+    /// Handle the gesture for the swipe according to device orientation.
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .up && UIDevice.current.orientation.isPortrait {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
@@ -115,7 +116,7 @@ class ViewController: UIViewController {
         }
     }
     
-    /// Define swipe movement.
+    /// Define translations for the swipe movement.
     private func swipeMoveUp(stackview: UIStackView) {
         stackview.transform = CGAffineTransform(translationX: 0, y: -40)
     }
@@ -153,7 +154,7 @@ class ViewController: UIViewController {
     
     /// Convert the viewToShare.
     private func convertToImage(view: UIView) -> UIImage? {
-        // pass it the size,  the image should be opaque and the currnt scale
+        // Create a context for the view.
         UIGraphicsBeginImageContextWithOptions(view.frame.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: viewToShare.bounds, afterScreenUpdates: true)
         // give a context and extract a UIImage from the rendering.
@@ -192,11 +193,12 @@ extension ViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {  
-     // When the user pick something. The constant "photoToLoad" is the image selected.
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+     // It gives the image selected by the user. The constant "photoToLoad" is the image selected.
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let photoToLoad = _imageTapped else { return }
-        // if the image is edited with "allowsEditing", check if it's an UIImage.
+        // if the image is edited with "allowsEditing" and if it's an UIImage.
         if let editedImage = info[.editedImage] as? UIImage {
             photoToLoad.image = editedImage
             photoToLoad.contentMode = .scaleAspectFill

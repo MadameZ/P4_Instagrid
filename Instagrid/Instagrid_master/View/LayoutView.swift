@@ -67,7 +67,7 @@ class LayoutView: UIView {
         }
     }
     
-    /// Action with the grid Button in viewController
+    /// Called in the Action with the grid Button in viewController
     func gridButtonSelected(_ sender: UIButton) {
         // Reset all the buttons wich was selected before.
         grid1Button.isSelected = false
